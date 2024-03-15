@@ -11,7 +11,12 @@ def is_vpn(ip_address):
     data = json.loads(response.text)
     return data["security"]["vpn"]
 
+def print_header(title):
+    print(f"\n{'=' * len(title)}\n{title}\n{'=' * len(title)}\n")
+
 while True:
+    print_header("VPN IP Address CHECKER")
+
     ip_address = get_ip_address()
     print(f"IP Address: {ip_address}")
 
@@ -21,11 +26,11 @@ while True:
     else:
         print("This IP address is not using a VPN. \U0000274C")
 
-    choice = input("Choose an option:\n1 - Check again \U0001F504\n2 - Close \U0001F44B\noption = ")
+    choice = input("\nChoose an option:\n1 - Check again \U0001F504\n2 - Close \U0001F44B\noption = ")
 
     if choice == '1':
         continue
     elif choice == '2':
         break
     else:
-        print("Invalid choice. Please try again. \U000026A0") 
+        print("\nInvalid choice. Please try again. \U000026A0")
